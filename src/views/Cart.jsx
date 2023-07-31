@@ -26,7 +26,7 @@ const Cart = () => {
             {
               cart.items.length === 0 &&
               <tr>
-                <td colSpan={4} aria-colspan={3} className="w-100 text-center">
+                <td colSpan={4} aria-colspan={3} className='w-100 text-center'>
                   <p className='my-0'>No hay productos en el carrito</p>
                 </td>
               </tr>
@@ -45,7 +45,7 @@ const Cart = () => {
                   <QuantityBox item={item} />
                 </td>
                 <td>
-                  <Button variant="danger" onClick={() => removeFromCart(item)}>🗑️</Button>
+                  <Button variant='danger' onClick={() => removeFromCart(item)}>🗑️</Button>
                 </td>
               </tr>
             ))}
@@ -53,7 +53,7 @@ const Cart = () => {
         </Table>
         <div className='line' />
         <p>Total a pagar: {toMoneyFormat(cart.total)}</p>
-        <Button className='button w-75' variant="dark" size="lg" onClick={clearCart}>Vaciar Carrito</Button>
+        <Button className='button w-75' variant='dark' size='lg' onClick={clearCart}>Vaciar Carrito</Button>
       </Card.Body>
     </Card>
   );

@@ -21,29 +21,29 @@ const PizzaCards = ({ pizzasToShow }) => {
     const findItem = cart.items.find((item) => item.id === pizza.id);
 
     return (
-      <Card key={pizza.id} className="pizza-card">
-        <div className="pizza-img-container">
-          <Card.Img variant="left" src={pizza.img} />
+      <Card key={pizza.id} className='pizza-card'>
+        <div className='pizza-img-container'>
+          <Card.Img variant='left' src={pizza.img} />
         </div>
         <Card.Body>
-          <Card.Title className="pizza-card-title">{toPascalCase(pizza.name)}</Card.Title>
-          <section className="pizza-card-text">Ingredientes: {pizza.ingredients.map((x) => <p className='my-0 mx-3 text-start' key={x}>🍕 {x}</p>)}</section>
+          <Card.Title className='pizza-card-title'>{toPascalCase(pizza.name)}</Card.Title>
+          <section className='pizza-card-text'>Ingredientes: {pizza.ingredients.map((x) => <p className='my-0 mx-3 text-start' key={x}>🍕 {x}</p>)}</section>
         </Card.Body>
-        <Card.Footer className="text-center">
-          <h3 className="text-center my-2" style={{ fontFamily: 'serif' }}>{toMoneyFormat(pizza.price.toFixed(0))}</h3>
-          <div className="pizza-card-buttons d-flex justify-content-between my-3">
+        <Card.Footer className='text-center'>
+          <h3 className='text-center my-2' style={{ fontFamily: 'serif' }}>{toMoneyFormat(pizza.price.toFixed(0))}</h3>
+          <div className='pizza-card-buttons d-flex justify-content-between my-3'>
             {
               findItem ? <QuantityBox item={findItem} size={true} /> :
-                <Button variant="primary" onClick={() => addToCart(pizza)}> Añadir <Cart className="mx-1" width="20" height="20" /> </Button>
+                <Button variant='primary' onClick={() => addToCart(pizza)}> Añadir <Cart className='mx-1' width='20' height='20' /> </Button>
             }
-            <Button style={findItem && { transform: 'scale(0.8)', width: '200px' }} variant="primary" className='d-flex align-items-center' onClick={() => showMore(pizza)}> Ver más <Eye className="mx-1" width="20" height="20" /> </Button>
+            <Button style={findItem && { transform: 'scale(0.8)', width: '200px' }} variant="primary" className='d-flex align-items-center' onClick={() => showMore(pizza)}> Ver más <Eye className='mx-1' width='20' height='20' /> </Button>
           </div>
         </Card.Footer>
       </Card>
     )
   };
   return (
-    <div className="pizza-cards-container">
+    <div className='pizza-cards-container'>
       {pizzasToShow.map(renderPizzas)
       }
     </div >

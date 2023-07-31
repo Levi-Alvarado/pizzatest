@@ -25,7 +25,7 @@ const PizzaDetail = () => {
           <div className='line' />
           <p className='text-muted'>Ingredientes: {pizza.ingredients.join(', ')}</p>
           <h2 style={{ fontFamily: 'serif' }}>{toMoneyFormat(pizza.price.toFixed(2))}</h2>
-          <Button className='button w-75' variant="dark" size="lg" onClick={() => addToCart(pizza)} >
+          <Button className='button w-75' variant='dark' size='lg' onClick={() => addToCart(pizza)} >
             Agregar al carro
           </Button>
         </section>
