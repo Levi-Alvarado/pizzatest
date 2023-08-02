@@ -1,4 +1,3 @@
-
 import PizzaCards from '../components/PizzaCards';
 import HeroSection from '../components/HeroSection';
 import pizzasData from '../data/pizzas.json';

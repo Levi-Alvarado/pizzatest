@@ -7,6 +7,11 @@ import { toMoneyFormat, toPascalCase } from '../utils';
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
 
+  const comprar = () => {
+    clearCart()
+    alert('Gracias por su compra')
+  }
+
   return (
     <Card body className='my-3 mx-2 bg-yellow'>
       <Card.Body className='row align-items-center'>
@@ -53,7 +58,10 @@ const Cart = () => {
         </Table>
         <div className='line' />
         <p>Total a pagar: {toMoneyFormat(cart.total)}</p>
-        <Button className='button w-75' variant='dark' size='lg' onClick={clearCart}>Vaciar Carrito</Button>
+
+        <Button className={cart.total > 0 ? 'Button w-25 mx-2' : 'Button w-25 disabled mx-2'} variant='dark' size='lg' onClick={clearCart}>Vaciar Carrito</Button>
+        <Button className={cart.total > 0 ? 'Button w-25 mx-2' : 'Button w-25 disabled mx-2'} variant='success' size='lg' onClick={comprar}>Comprar</Button>
+
       </Card.Body>
     </Card>
   );

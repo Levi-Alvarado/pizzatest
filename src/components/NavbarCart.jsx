@@ -8,11 +8,12 @@ export const NavbarCart = () => {
     const { cart } = useContext(CartContext);
     const totalQty = cart.items.reduce((acc, item) => acc + item.quantity, 0) || 0;
     return (
-        <>
+        <div className='d-flex gap-3 align-items-center justify-content-center'>
             <Link id='navbarCart' to='/carrito' relative='path'>
                 <Badge className='cart-items' bg='dark'>{totalQty}</Badge>
                 <Cart width='30' height='30' style={{ fill: '#000' }} />
             </Link>
-        </>
+            {cart.total}
+        </div>
     )
 }

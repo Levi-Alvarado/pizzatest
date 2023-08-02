@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types'; // Importa PropTypes
+import PropTypes from 'prop-types';
 
 const CartContext = createContext();
 
