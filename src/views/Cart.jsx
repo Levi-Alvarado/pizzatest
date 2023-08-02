@@ -3,13 +3,19 @@ import { Button, Card, Image, Table } from 'react-bootstrap';
 import { CartContext } from '../CartContext';
 import { QuantityBox } from '../components/QuantityBox';
 import { toMoneyFormat, toPascalCase } from '../utils';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
-
-  const comprar = () => {
+  const MySwal = withReactContent(Swal)
+  const buy = () => {
+    MySwal.fire({
+      title: <p>Gracias por su compra.</p>,
+      icon: 'success'
+      })
     clearCart()
-    alert('Gracias por su compra')
+    
   }
 
   return (
@@ -60,7 +66,7 @@ const Cart = () => {
         <p>Total a pagar: {toMoneyFormat(cart.total)}</p>
 
         <Button className={cart.total > 0 ? 'Button w-25 mx-2' : 'Button w-25 disabled mx-2'} variant='dark' size='lg' onClick={clearCart}>Vaciar Carrito</Button>
-        <Button className={cart.total > 0 ? 'Button w-25 mx-2' : 'Button w-25 disabled mx-2'} variant='success' size='lg' onClick={comprar}>Comprar</Button>
+        <Button className={cart.total > 0 ? 'Button w-25 mx-2' : 'Button w-25 disabled mx-2'} variant='success' size='lg' onClick={buy}>Comprar</Button>
 
       </Card.Body>
     </Card>

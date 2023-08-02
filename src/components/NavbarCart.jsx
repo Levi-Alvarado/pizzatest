@@ -2,7 +2,8 @@ import { useContext } from 'react';
 import { Badge } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../CartContext';
-import Cart from'../icons/cart'
+import Cart from '../icons/cart'
+import { toMoneyFormat } from '../utils';
 
 export const NavbarCart = () => {
     const { cart } = useContext(CartContext);
@@ -13,7 +14,9 @@ export const NavbarCart = () => {
                 <Badge className='cart-items' bg='dark'>{totalQty}</Badge>
                 <Cart width='30' height='30' style={{ fill: '#000' }} />
             </Link>
-            {cart.total}
+            <p className='pt-1 h5'>
+                {toMoneyFormat(cart.total)}
+            </p>
         </div>
     )
 }
